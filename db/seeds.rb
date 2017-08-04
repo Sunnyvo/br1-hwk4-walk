@@ -24,3 +24,14 @@ if Section.count == 0
 else
   puts "Looks like you already have some sections!"
 end
+if FoodItem.count == 0
+  sections = Section.all
+  30.times do
+    FoodItem.create(
+      name: Faker::Food.dish,
+      description: "#{Faker::DragonBall.character} eat this food at #{Faker::Hobbit.location} when he says #{Faker::Hobbit.quote}",
+      section: sections.sample,
+      price: rand(10..200) * 1000 # price is between 10,000 VND and 200,000 VND
+    )  
+  end
+end  

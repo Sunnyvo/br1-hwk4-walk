@@ -7,13 +7,25 @@
                   class: "nav-link #{'active' if params[:section] == section.name}") %>
     </li>
   <% end %>
+</ul>  
   <% if @food_items.present? %>
     <br><br>
+    <%# search by use javascript  %>
+    <%# <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"> %>
+    
+    <div id="row" class="row">
     <% @food_items.each do |food_item| %>
-      =======<br>
-      name: <%= food_item.name %><br>
-      price: <%= food_item.price %><br>
-      description: <%= food_item.description %><br>
+      <div class="card col-sm-4">
+        <%=image_tag(food_item.fake_image_url, class: "card-img-top", alt: "Card image cap")%>
+        <div id="card-block" class="card-block">
+          <h4 class="card-title"> <%= food_item.name %></h4>
+          <p class="card-text">
+            price: <%= food_item.price %><br>
+            description: <%= food_item.description %><br>
+          </p>  
+          <%= link_to "order"%>
+        </div>  
+      </div>  
     <% end %>
+    </div>
   <% end %>
-</ul>
