@@ -23,7 +23,12 @@
             price: <%= food_item.price %><br>
             description: <%= food_item.description %><br>
           </p>  
-          <%= link_to "order"%>
+          <%=form_for LineItem.new(food_item: food_item), url: carts_add_path do |f| %>
+          <%= f.hidden_field :food_item_id%> 
+           <%= f.number_field :quantity, class: "form-control" %> 
+          <%= f.submit "Order", class: "btn btn-primary" %>
+          <% end %>
+          
         </div>  
       </div>  
     <% end %>
