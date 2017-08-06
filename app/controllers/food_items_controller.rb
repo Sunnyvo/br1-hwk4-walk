@@ -7,10 +7,9 @@ class FoodItemsController < ApplicationController
     @food_items = FoodItem.all
   end
 
-  # GET /food_items/1
+    # GET /food_items/1
   # GET /food_items/1.json
-  def show
-  end
+  
 
   # GET /food_items/new
   def new

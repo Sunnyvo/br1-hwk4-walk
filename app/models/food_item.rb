@@ -5,4 +5,11 @@ class FoodItem < ApplicationRecord
   def fake_image_url
     "http://loremflickr.com/320/240/" + name.parameterize
   end
+
+
+
+
+
+ 
+
 end

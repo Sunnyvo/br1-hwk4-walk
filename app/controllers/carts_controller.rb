@@ -7,8 +7,8 @@ class CartsController < ApplicationController
         flash[:error] ="Can not add! line_item! the number add is not valided"
       else
         flash[:success] ="line_item is added"  
-        redirect_back(fallback_location: menu_path)
       end  
+      redirect_back(fallback_location: menu_path)
   end  
   
   def show

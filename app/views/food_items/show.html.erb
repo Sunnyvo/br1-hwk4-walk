@@ -17,8 +17,10 @@
 
 <p>
   <strong>Section:</strong>
-  <%= @food_item.section %>
+  <%= @food_item.section.name %>
 </p>
-
+<p>
+ <%=image_tag(@food_item.fake_image_url, class: "image-large card-img-top", alt: "Card image cap")%>
+</p>
 <%= link_to 'Edit', edit_food_item_path(@food_item) %> |
 <%= link_to 'Back', food_items_path %>

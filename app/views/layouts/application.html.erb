@@ -9,13 +9,13 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-toggleable navbar-light bg-faded">
-    <a class="navbar-brand" href="<%= root_path %>">Mèo con rainy </a>
     <% flash.each do |key, value| %>
        <div class="alert <%= flasherize(key) %>">
         <%= value %>
       </div>
     <% end %>
+  <nav class="navbar navbar-toggleable navbar-light bg-faded">
+    <a class="navbar-brand" href="<%= root_path %>">Mèo con rainy </a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -24,7 +24,7 @@
         </li>
         <li class="nav-item">
           <%= link_to cart_path, class: "nav-link" do%>
-            Cart 
+            Your order 
             <span class="badge badge-primary">
             <%= get_cart.item_count %> 
             </span>
