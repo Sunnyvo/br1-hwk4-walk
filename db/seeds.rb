@@ -24,6 +24,13 @@ if Section.count == 0
 else
   puts "Looks like you already have some sections!"
 end
+
+country_list = [
+  "Vietnam" ,
+   "China" ,
+   "France",
+   "Italy",
+   "Netherlands"]
 if FoodItem.count == 0
   sections = Section.all
   30.times do
@@ -31,6 +38,8 @@ if FoodItem.count == 0
       name: Faker::Food.dish,
       description: "#{Faker::DragonBall.character} eat this food at #{Faker::Hobbit.location} when he says #{Faker::Hobbit.quote}",
       section: sections.sample,
+      cuisine: @country_list.sample, 
+      view: 0,
       price: rand(10..200) * 1000 # price is between 10,000 VND and 200,000 VND
     )  
   end

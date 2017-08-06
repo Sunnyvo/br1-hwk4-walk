@@ -15,6 +15,9 @@ class MenuController < ApplicationController
     if params[:search]
       @food_items = @food_items.where("name ILike ?","%#{params[:search]}%")
     end  
+    if params[:cuisine]
+      @food_items = @food_items.where(cuisine: params[:cuisine])
+    end  
   end
 
 

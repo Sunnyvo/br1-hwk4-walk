@@ -6,14 +6,37 @@
       <%= link_to(section.name, menu_path(section: section.name),
                   class: "nav-link #{'active' if params[:section] == section.name}") %>
     </li>
-  <% end %>   
+
+  <% end %>
+
+</ul class="nav nav-pills">   
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    Cuisine:
+  <li>
+  <li class="nav-item">
+     <%= link_to "Vietnam", menu_path(:cuisine => "Vietnam", section: params[:section]) ,class: "nav-link #{'active' if params[:cuisine] == "Vietnam"} " %> 
+  <li>
+  <li class="nav-item">
+     <%= link_to "Franch", menu_path(:cuisine => "Franch", section: params[:section]) ,class: "nav-link #{'active' if params[:cuisine] == "Franch"} " %> 
+  <li>
+  <li class="nav-item">
+     <%= link_to "Netherlands", menu_path(:cuisine => "Netherlands", section: params[:section]) ,class: "nav-link #{'active' if params[:cuisine] == "Netherlands"} " %> 
+  <li>
+  <li class="nav-item">
+     <%= link_to "Italy", menu_path(:cuisine => "Italy", section: params[:section]) ,class: "nav-link #{'active' if params[:cuisine] == "Italy"} " %> 
+  <li>
+  <li class="nav-item">
+     <%= link_to "China", menu_path(:cuisine => "China", section: params[:section]) ,class: "nav-link #{'active' if params[:cuisine] == "China"} " %> 
+  <li>
 </ul class="nav nav-pills"> 
+
 <ul class="nav nav-pills">
   <li class="nav-item">
     <%= form_tag menu_path, :method => 'get' do  %>
       <p>
         <%= hidden_field_tag :section, params[:section] %>
-        <%= text_field_tag :search, params[:search]%>
+        <%= text_field_tag :search, params[:search],placeholder: "Name of food..."%>
         <%= submit_tag "Search", :name => nil  %>
       </p>
     <% end %>
@@ -24,23 +47,37 @@
   <li class="nav-item">
     <%= link_to "price low to high", menu_path(:sort_param => "price ASC", section: params[:section]) ,class: "nav-link #{'active' if params[:sort_param] == "price ASC"} " %> 
   </li>
-    <li class="nav-item">
+  <li class="nav-item">
     <%= link_to "price high to low", menu_path(:sort_param => "price DESC", section: params[:section]) ,class: "nav-link #{'active' if params[:sort_param] == "price DESC"} " %> 
   </li>
+  <li class="nav-item">
+    <%= link_to "sort by view", menu_path(:sort_param => "view DESC", section: params[:section]) ,class: "nav-link #{'active' if params[:sort_param] == "view DESC"} " %> 
+  </li>  
 </ul class="nav nav-pills">  
   <% if @food_items.present? %>
     <br><br>
 
-    <div id="row" class="row">
+    <div id="row" class="row ">
     <% @food_items.each do |food_item| %>
       <div class="card col-sm-4">
         <%=image_tag(food_item.fake_image_url, class: "card-img-top", alt: "Card image cap")%>
-        <div id="card-block" class="card-block">
+        <div id="card-block" class="card-block contain-food">
           <h4> 
             <%=link_to food_item.name, food_item_path(food_item), target: :_blank, class: "nav-link" %>
           </h4>
           <p class="card-text">
-            price: <%= food_item.price %><br>
+            Cuisine: <%= food_item.cuisine %><br> 
+            Price: <%= food_item.price %><br>
+            View: <%= food_item.view %><br>
+            Stars: 
+          <div class="star-rating"> 
+            <span class="filledStar" data-rating="1"></span>
+            <span class="filledStar" data-rating="2"></span>
+            <span class="filledStar" data-rating="3"></span>
+            <span class="filledStar" data-rating="4"></span>
+            <span class="filledStar" data-rating="5"></span>
+            <input type="hidden" name="whatever" class="rating-value" value="3">
+          </div>            
           </p>  
           <%=form_for LineItem.new(food_item: food_item), url: carts_add_path do |f| %>
           <%= f.hidden_field :food_item_id%> 

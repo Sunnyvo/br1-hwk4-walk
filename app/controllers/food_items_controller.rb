@@ -64,6 +64,9 @@ class FoodItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_food_item
       @food_item = FoodItem.find(params[:id])
+      puts "hello item: #{@food_item.view}" 
+      @food_item.view = @food_item.view + 1
+      @food_item.save
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
