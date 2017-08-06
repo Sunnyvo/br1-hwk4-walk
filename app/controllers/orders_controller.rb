@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
     @order = Order.new order_params
     @order.line_items = get_cart.line_items
     if @order.save
-      flash[:success] = "you will recieve your food in 10000 years"
+      flash[:success] = "you will recieve your food in 2 hours"
       redirect_to  order_path(@order)  
       destroy_cart
     else
