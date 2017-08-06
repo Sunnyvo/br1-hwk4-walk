@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :get_cart
+  helper_method :get_cart 
   def get_cart
      return @cart if @cart
     if session[:cart_id]

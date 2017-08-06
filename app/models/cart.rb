@@ -9,6 +9,7 @@ class Cart < ApplicationRecord
     line_items.each do |line_item|  
       amount = amount + (line_item.food_item.price) * line_item.quantity
     end
-    amount  
+    amount 
   end 
+  
 end

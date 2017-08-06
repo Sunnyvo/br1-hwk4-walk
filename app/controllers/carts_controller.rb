@@ -12,7 +12,14 @@ class CartsController < ApplicationController
   end  
   
   def show
-    @cart = get_cart
+    cart = get_cart
+    puts "params: #{params[:couchon]}"
+    if params[:couchon] == "CODERSCHOOL"
+      puts "why!"
+      cart.coucher = 50
+      cart.save  
+    end
+    @cart =  cart
   end  
   
   private

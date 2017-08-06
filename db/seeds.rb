@@ -25,7 +25,7 @@ else
   puts "Looks like you already have some sections!"
 end
 
-country_list = [
+@country_list = [
   "Vietnam" ,
    "China" ,
    "France",
