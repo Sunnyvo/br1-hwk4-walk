@@ -9,7 +9,7 @@ class FoodItemsController < ApplicationController
 
     # GET /food_items/1
   # GET /food_items/1.json
-  
+
 
   # GET /food_items/new
   def new
@@ -64,7 +64,7 @@ class FoodItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_food_item
       @food_item = FoodItem.find(params[:id])
-      puts "hello item: #{@food_item.view}" 
+      puts "hello item: #{@food_item.view}"
       @food_item.view = @food_item.view + 1
       @food_item.save
     end

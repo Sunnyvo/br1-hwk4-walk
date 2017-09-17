@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>AnThoi</title>
+  <title>Rainy Restaurant</title>
   <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -24,11 +24,11 @@
         </li>
         <li class="nav-item">
           <%= link_to cart_path, class: "nav-link" do%>
-            Your order 
+            Your order
             <span class="badge badge-primary">
-            <%= get_cart.item_count %> 
+            <%= get_cart.item_count %>
             </span>
-          <%end%>   
+          <%end%>
         </li>
 
       </ul>

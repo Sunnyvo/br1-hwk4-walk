@@ -1,22 +1,20 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
-// function myFunction() {
-//   var input, filter,i;
-//   input = document.getElementById("myInput");
-//   filter = input.value.toUpperCase();
-//   list = document.getElementById("row");
-//   item = list.getElementsByClassName("card");
-//   for (i = 0; i < item.length; i++) {
-//     title = item[i].getElementsByTagName("div")[0]
-    
-//     if (title.getElementsByTagName("h4")[0]) {
-//       if (title.getElementsByTagName("h4")[0].innerHTML.toUpperCase().indexOf(filter) > -1) {
-//         item[i].style.display = "";
-//       } 
-//       else {
-//         item[i].style.display = "none";
-//       }
-//     }       
-//   }
-// }
+var $star_rating = $('.star-rating .fa');
 
+var SetRatingStar = function() {
+  return $star_rating.each(function() {
+    if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+      return $(this).removeClass('fa-star-o').addClass('fa-star');
+    } else {
+      return $(this).removeClass('fa-star').addClass('fa-star-o');
+    }
+  });
+};
+
+$star_rating.on('click', function() {
+  $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+  return SetRatingStar();
+});
+
+SetRatingStar();

@@ -70,14 +70,7 @@
             Price: <%= food_item.price %><br>
             View: <%= food_item.view %><br>
             Stars: 
-          <div class="star-rating"> 
-            <span class="filledStar" data-rating="1"></span>
-            <span class="filledStar" data-rating="2"></span>
-            <span class="filledStar" data-rating="3"></span>
-            <span class="filledStar" data-rating="4"></span>
-            <span class="filledStar" data-rating="5"></span>
-            <input type="hidden" name="whatever" class="rating-value" value="3">
-          </div>            
+                   
           </p>  
           <%=form_for LineItem.new(food_item: food_item), url: carts_add_path do |f| %>
           <%= f.hidden_field :food_item_id%> 
